@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 Accordion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /*
+      SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+      FONT SIZE SYSTEM (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+      */
+      /* 
+      MAIN COLOR: #087f5b
+      GREY COLOR: #343a40
+      */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: #343a40;
+        line-height: 1.5;
+      }
+
+      .accordion-list {
+        width: 700px;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .accordion {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 32px rgba(0, 0, 0, 0.3);
+      }
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px;
+        cursor: pointer;
+        font-weight: 500;
+      }
+      .accordion-header > .number,
+      .accordion-header > .text {
+        font-size: 24px;
+      }
+      .accordion-header > .icon {
+        width: 24px;
+      }
+      .hidden-box {
+        display: none;
+        padding: 0 24px 24px 24px;
+      }
+      .hidden-box p {
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+      .hidden-box ul {
+        color: #868e96;
+        margin-left: 16px;
+      }
+      .accordion.active::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        border: 3px solid #087f5b;
+      }
+      .accordion.active > .hidden-box {
+        display: block;
+      }
+      .accordion.active > .accordion-header > .number,
+      .accordion.active > .accordion-header > .text {
+        color: #087f5b;
+      }
+      .accordion.active > .accordion-header > .icon {
+        stroke: #087f5b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion-list">
+      <div class="accordion" onclick="handleClick(this)">
+        <div class="accordion-header">
+          <span class="number">01</span>
+          <p class="text">Where are these chairs assembled?</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </div>
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nisi
+            atque iusto exercitationem harum fuga quod tenetur illum aliquam
+            quam, libero similique vitae impedit in quo explicabo sapiente ad
+            doloribus.
+          </p>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              animi veniam ea?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi,
+              labore!
+            </li>
+            <li>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore,
+              reprehenderit!
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              animi veniam ea?
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion active" onclick="handleClick(this)">
+        <div class="accordion-header">
+          <span class="number">02</span>
+          <p class="text">How long do I have to return my chair?</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </div>
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nisi
+            atque iusto exercitationem harum fuga quod tenetur illum aliquam
+            quam, libero similique vitae impedit in quo explicabo sapiente ad
+            doloribus.
+          </p>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              animi veniam ea?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi,
+              labore!
+            </li>
+            <li>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore,
+              reprehenderit!
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              animi veniam ea?
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion" onclick="handleClick(this)">
+        <div class="accordion-header">
+          <span class="number">03</span>
+          <p class="text">Do you ship to countries outside the EU?</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </div>
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nisi
+            atque iusto exercitationem harum fuga quod tenetur illum aliquam
+            quam, libero similique vitae impedit in quo explicabo sapiente ad
+            doloribus.
+          </p>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              animi veniam ea?
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi,
+              labore!
+            </li>
+            <li>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore,
+              reprehenderit!
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              animi veniam ea?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const accordionList = document.getElementsByClassName("accordion");
+    function handleClick(element) {
+      for (let i = 0; i < accordionList.length; i++) {
+        const element = accordionList[i];
+        element.classList.remove("active");
+      }
+      element.classList.add('active')
+    }
+  </script>
+</html>
